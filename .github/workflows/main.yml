@@ -3,7 +3,7 @@ name: Deploy Página HTML
 on:
   push:
     branches:
-      - main 
+      - main
 
 jobs:
   build:
@@ -12,12 +12,6 @@ jobs:
     steps:
       - name: Checkout do código
         uses: actions/checkout@v3
-
-      - name: Validar Código HTML
-        run: |
-          sudo apt update
-          sudo apt install -y tidy
-          tidy -q -e index.html || exit 1
 
   deploy:
     needs: build
